@@ -9,17 +9,13 @@
 // @grant        none
 // ==/UserScript==
 
-
-
-
 function banUserList() {
     'use strict';
     // exact name of the players you wish to ban
     const NAME_LIST = ['Pavle']
+    const CHAT_HTML_SELECTOR = '#chat_expanded_inner';
 
-
-
-    document.querySelector("#chat_expanded_inner").childNodes.forEach((node) => {
+    document.querySelector(CHAT_HTML_SELECTOR).childNodes.forEach((node) => {
         node.childNodes.forEach((childNode) => validate(node, childNode));
     });
 
@@ -41,7 +37,7 @@ function banUserList() {
         }
     }
 
-    observer.observe(document.querySelector("#chat_expanded_inner"), {
+    observer.observe(document.querySelector(CHAT_HTML_SELECTOR), {
         childList: true,
     });
 }
